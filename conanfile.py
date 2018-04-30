@@ -4,7 +4,7 @@ class LmdbConan(ConanFile):
     name = "lmdb"
     version = "0.9.22"
     license = "MIT"
-    url = "https://github.com/Ri0n/conan-ldap-recipes"
+    url = "https://github.com/Ri0n/conan-lmdb"
     description = "Lightning Memory-Mapped Database from Symas"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
