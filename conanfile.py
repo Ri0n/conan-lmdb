@@ -3,7 +3,7 @@ from conans import ConanFile, MSBuild
 class LmdbConan(ConanFile):
     name = "lmdb"
     version = "0.9.22"
-    license = "MIT"
+    license = "OpenLDAP"
     url = "https://github.com/Ri0n/conan-lmdb"
     description = "Lightning Memory-Mapped Database from Symas"
     settings = "os", "compiler", "build_type", "arch"
@@ -31,6 +31,6 @@ class LmdbConan(ConanFile):
 
     def package_info(self):
         prefix = ["lib",""][self.options.shared == True]
-        postfix = [" ","d"][self.settings.get_safe("build_type") == "Debug"]
+        postfix = ["","d"][self.settings.get_safe("build_type") == "Debug"]
         self.cpp_info.libs = [prefix + "lmdb" + postfix]
 
