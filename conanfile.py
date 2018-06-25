@@ -23,14 +23,12 @@ class LmdbConan(ConanFile):
 
     def package(self):
         self.copy("lmdb.h", dst="include", src="lmdb\\libraries\\liblmdb")
-        self.copy("*lmdb*.lib", dst="lib", keep_path=False)
+        self.copy("*lmdb.lib", dst="lib", keep_path=False)
         self.copy("*.dll", dst="bin", keep_path=False)
         self.copy("*.so", dst="lib", keep_path=False)
         self.copy("*.dylib", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        prefix = ["lib",""][self.options.shared == True]
-        postfix = ["","d"][self.settings.get_safe("build_type") == "Debug"]
-        self.cpp_info.libs = [prefix + "lmdb" + postfix]
+        self.cpp_info.libs = ["lmdb.lib"]
 
